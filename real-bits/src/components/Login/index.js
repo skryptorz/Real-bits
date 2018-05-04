@@ -28,14 +28,16 @@ class Login extends Component {
 	}
 
 	getPassword = _ => {
-
+const { handle } = this.props.match.params
+console.log(this.props.match.params);
 		var url = "http://localhost:4000/id?" + $.param({ Email: this.Email.value })
-
+var RedirectionUrl='/dashboard/'+this.Email.value 
+console.log(RedirectionUrl);
 		fetch(url).then(response => response.json())
 			.then((response) => {
 				this.setState({ DBpassword: response.data })
 				if (this.state.DBpassword === this.state.InputPassword) {
-					this.props.history.push('/App')
+					this.props.history.push(RedirectionUrl)
 					this.props.loginStatus()
 				}
 			})
