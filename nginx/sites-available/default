@@ -1,0 +1,25 @@
+
+server {
+   listen 80;
+   
+   server_name ec2-34-210-11-118.us-west-2.compute.amazonaws.com;
+  root /www/build/;
+index index.html index.htm;
+location = /#login{
+
+ 
+
+ try_files $uri /www/build/index.html;
+if ($request_method ~* "(GET|POST)") {
+      add_header "Access-Control-Allow-Origin"  *;
+    }
+
+    # Preflighted requests
+    if ($request_method = OPTIONS ) {
+      add_header "Access-Control-Allow-Origin"  *;
+      add_header "Access-Control-Allow-Methods" "GET, POST, OPTIONS, HEAD";
+      add_header "Access-Control-Allow-Headers" "Authorization, Origin, X-Requested-With, Content-Type, Accept";
+      return 200;
+    }	
+}
+ }
