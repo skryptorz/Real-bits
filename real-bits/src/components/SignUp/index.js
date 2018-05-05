@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './style.css';
 
 import _ from 'lodash';
 
@@ -25,14 +24,14 @@ constructor(props) {
 		console.log(this.Password.value);
 		
 		
-		var url = new URL("http://localhost:4000/users"),
+		var url = new URL("http://ec2-34-210-11-118.us-west-2.compute.amazonaws.com:4000/users"),
     params = {FirstName:this.FirstName.value, LastName:this.LastName.value, Email:this.Email.value,Password:this.Password.value}
 Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
 
 
 
-fetch(url, {mode: 'no-cors'})
-.catch(err=> console.error(err))
+fetch(url, {mode:"no-cors"   
+    }).catch(err=> console.error(err))
     }
 	render(){
 		return(
