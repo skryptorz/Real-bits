@@ -13,7 +13,7 @@ class Login extends Component {
 	constructor(props) {
 		super(props)
 		this.onSubmit = this.onSubmit.bind(this);
-	}
+	}0
 	state = {
 		DBpassword: '',
 		InputPassword: '',
@@ -28,9 +28,7 @@ class Login extends Component {
 	}
 
 	getPassword = _ => {
-const { handle } = this.props.match.params
-console.log(this.props.match.params);
-		var url = "http://localhost:4000/id?" + $.param({ Email: this.Email.value })
+		var url = "http://ec2-34-210-11-118.us-west-2.compute.amazonaws.com:4000/id?" + $.param({ Email: this.Email.value })
 var RedirectionUrl='/dashboard/'+this.Email.value 
 console.log(RedirectionUrl);
 		fetch(url).then(response => response.json())
