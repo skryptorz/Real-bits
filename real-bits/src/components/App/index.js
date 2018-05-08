@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-
-import './style.css';
 import Block from './../Block';
 
 import Web3 from 'web3';

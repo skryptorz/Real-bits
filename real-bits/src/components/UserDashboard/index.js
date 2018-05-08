@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
-
+import ResponsiveDrawer from './../ResponsiveDrawer';
 
 
 class UserDashboard extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-
-            userId: props.match.params.email
-        };
-        this.onSubmit = this.onSubmit.bind(this);
+               this.onSubmit = this.onSubmit.bind(this);
     }
     onSubmit(event) {
 		event.preventDefault();
@@ -20,7 +16,8 @@ class UserDashboard extends Component {
     render() {
         return (
             <div>
-                <h3>{this.state.userId} ! This is your Dashboard.</h3>
+<ResponsiveDrawer />
+                <h3>{this.props.location.state.data} ! This is your Dashboard.</h3>
 
 
                 <form onSubmit={this.onSubmit}>

@@ -3,8 +3,10 @@ import './style.css';
 import _ from 'lodash';
 import $ from "jquery";
 import {  withRouter } from 'react-router';
+import Header from './../Header';
 import createHistory from 'history/createBrowserHistory';
-
+import { Button, Input, Icon, Grid, Image, Label, Form } from 'semantic-ui-react';
+import 'semantic-ui-css/semantic.min.css';
 
 const history = createHistory()
 
@@ -29,14 +31,13 @@ class Login extends Component {
 
 	getPassword = _ => {
 		var url = "http://ec2-34-210-11-118.us-west-2.compute.amazonaws.com:4000/id?" + $.param({ Email: this.Email.value })
-var RedirectionUrl='/dashboard/'+this.Email.value 
-console.log(RedirectionUrl);
+var RedirectionUrl='/dashboard'
 		fetch(url).then(response => response.json())
 			.then((response) => {
 				this.setState({ DBpassword: response.data })
 				if (this.state.DBpassword === this.state.InputPassword) {
-					this.props.history.push(RedirectionUrl)
-					this.props.loginStatus()
+					this.props.history.push(RedirectionUrl,{data:this.Email.value})
+					
 				}
 			})
 
@@ -47,33 +48,43 @@ console.log(RedirectionUrl);
 		return (
 
 			<div>
-
+			    <Header/>
 				<div id="login">
-					<h1>Welcome Back!</h1>
-					<div>
-						{this.state.DBpassword}
-						{this.state.InputPassword}
-					
-					</div>
+					<div class="page-login" style={{ background: 'transparent'}}>
+					<Grid container columns={2} padded='vertically'>
+						<Grid.Column color='teal' floated='centered' mobile={16} tablet={8} computer={4} computer={6}>
+							<Label attached='top left' color='grey' size='big'>Welcome Back!</Label>
+							<br></br>
+							<br></br>
 
-					<form onSubmit={this.onSubmit}>
-						<div className="field-wrap">
-							<label>
-								Email Address<span className="req">*</span>
-							</label>
-							<input type="email" name="Email" id="Email" ref={input => this.Email = input} required />
-						</div>
-						<div className="field-wrap">
-							<label>
-								Password<span className="req">*</span>
-							</label>
-							<input type="password" name="Password" id="Password" ref={input => this.Password = input} required />
-						</div>
+							<Form onSubmit={this.onSubmit}>
+								<label>Enter Email  </label>
 
-						<button type="submit"  className="button button-block">Log In</button>
+								<input type="email" name="Email" id="Email" ref={input => this.Email = input} placeholder='Email' required>
 
-					</form>
+								</input >
+								<br></br>
+								<br></br>
+								<label>Enter Password  </label>
+								<input type="password" name="Password" id="Password" ref={input => this.Password = input} placeholder='Password' required>
 
+								</input >
+
+								<br></br>
+								<br></br>
+								<div >
+									<Button type='submit' icon labelPosition='left' inverted >
+										<Icon name='sign in' />
+										Login
+    										</Button>
+
+								</div>
+							</Form>
+						</Grid.Column>
+
+					</Grid>
+
+</div>
 				</div>
 			</div>
 		);
