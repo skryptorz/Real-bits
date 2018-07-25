@@ -1,0 +1,27 @@
+.btn-space {
+    margin-right: 5px;
+}
+.account {
+overflow-y: auto;
+height:668px;
+width: 800px; /* Full width (cover the whole page) */
+      top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+     }
+
+.user{
+min-height:1138px;
+height:-webkit-fill-available;
+width:100%;
+background: linear-gradient(rgba(60, 82, 151, 0.5),rgba(32, 35, 201, 0.5)), url("./../UserDashboard/back.jpg");
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+overflow-y:auto;
+}

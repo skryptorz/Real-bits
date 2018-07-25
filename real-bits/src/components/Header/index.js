@@ -1,49 +1,49 @@
 import React, { Component } from 'react';
-
+import { Menu, Segment } from 'semantic-ui-react';
 import _ from 'lodash';
 import { Image, List, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css';
+import { withRouter } from 'react-router';
 
-class 
-Header extends Component {
-	
+
+class Header extends Component {
+	state = { activeItem: '' }
+	handleItemClickSignUp = (e, { name }) => {
+		this.setState({
+			activeItem: name
+		}
+		)
+		this.props.history.push("/signup");
+	}
+
+	handleItemClickLogin = (e, { name }) => {
+		this.setState({
+			activeItem: name
+		}
+		)
+		this.props.history.push("/login");
+	}
+
 	render() {
-		
-			return (
-
-				
-
-					<div className="header" >
-						<List animated verticalAlign='middle'>
-							<List.Item>
-								<Icon name='signup' />
-								<List.Content>
-									<List.Header><Link to="/signup" >Signup</Link></List.Header>
-								</List.Content>
-							</List.Item>
-							<List.Item>
-								<Icon name='sign in' />
-								<List.Content>
-									<List.Header><Link to="/login" >Log In</Link></List.Header>
-								</List.Content>
-							</List.Item>
-
-						</List>
-
-
-
-
-					</div>
-
-
-
-
-			);
-		
+		const { activeItem } = this.state
+		return (
+			<div className="header" >
+				<Segment inverted>
+					<Menu inverted pointing secondary >
+						<Menu.Item name='Signup' active={activeItem === 'Signup'} onClick={this.handleItemClickSignUp} >
+							<Icon name='signup' /> Sign Up
+		  				</Menu.Item>
+						<Menu.Item name='Login' active={activeItem === 'Login'} onClick={this.handleItemClickLogin} >
+							<Icon name='sign in' />Login
+		  				</Menu.Item>
+					</Menu>
+				</Segment>
+			</div>
+		);
 	}
 }
 
-export default Header;
+export default withRouter(Header);
 
 

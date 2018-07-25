@@ -1,0 +1,31 @@
+.MuiListItem-button-70 {
+transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+color:rgb(247, 245, 245);
+}
+.user{
+min-height:1138px;
+height:-webkit-fill-available;
+width:100%;
+background: linear-gradient(rgba(60, 82, 151, 0.5),rgba(32, 35, 201, 0.5)), url("./../UserDashboard/back.jpg");
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+overflow-y:auto;
+}
+.UserDashboard-mainPanel-20 {
+position:absolute;
+min-height: 1368px;
+height:-webkit-fill-available;
+max-height: 1368px;
+margin-left: 257px;
+}
+.form-horizontal .control-label {
+color: whitesmoke;
+font-style: oblique;
+font-size: large;
+}
+.form-horizontal .checkbox, .form-horizontal .checkbox-inline, .form-horizontal .radio, .form-horizontal .radio-inline {
+color: whitesmoke;
+font-style: oblique;
+font-size: large;
+}

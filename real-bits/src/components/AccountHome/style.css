@@ -1,0 +1,15 @@
+.ui.feed>.event>.label img {
+    width: 33px;
+    height: 33px;
+  
+}
+.home{
+    margin-top: 38px;
+}
+.accounthome{
+min-height:1138px;
+height:-webkit-fill-available;
+background-color: lightgrey;
+width:100%;
+overflow-y:auto;
+}
